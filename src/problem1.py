@@ -8,6 +8,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 
 import rosegraphics as rg
 
+
 # -----------------------------------------------------------------------------
 # DONE: 2. Right-click on the  src  folder and
 #              Mark Directory as ... Sources Root,
@@ -64,6 +65,18 @@ def run_test_problem1():
 
 
 def problem1(square, thickness, window):
+    square.attach_to(window)
+    circle = rg.Circle(rg.Point(square.center.x, square.center.y + square.length_of_each_side),
+                       square.length_of_each_side // 2)
+    circle.fill_color = square.fill_color
+    circle.outline_thickness = thickness
+    circle.attach_to(window)
+    line = rg.Line(rg.Point(square.center.x - square.length_of_each_side // 2, square.center), square.center)
+    line.color = square.outline_color
+    line.thickness = thickness
+    line.attach_to(window)
+    window.render()
+
     """
     See   problem1_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -104,23 +117,9 @@ def problem1(square, thickness, window):
     # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
-    window = rg.RoseWindow()
-    x = rg.Point.x
-    y = rg.Point.y
-    z = radius
-
-    rg.Circle = (x,y, z)
-    Circle.attach_to(window)
-    square.attach_to(window)
-    rg.Square(rg.Point(x, y+2*z), z)
-    rg.Square.outline_color = 'square.outline_color'
-    square.fill_color = 'square.fill_color'
-    square.thickness= 'square.outline_thickness'
-
-    window.render()
-
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
+
 main()

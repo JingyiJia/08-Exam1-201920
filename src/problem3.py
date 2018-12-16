@@ -1,21 +1,9 @@
 """
-x = rg.Point.x
-    y = rg.Point.y 
-    z = length 
-    square.attach_to(window)
-    window = rg.RoseWindow()
-    square.attach_to(window)
-    rg.Square(rg.Point(x,y),z)
-    rg.Square.outline_color = 'square.outline_color'
-    square.fill_color = 'square.fill_color'
-    thickness = square.outline_thickness
-    window.render()
-
 Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and Jingyi. Jia.
+         and Jingyi. Jia
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import testing_helper
@@ -149,7 +137,12 @@ def run_test_problem3a():
 
 
 def problem3a(r, s):
-    """
+    total=0
+    for k in range(r,s+1):
+        if (sum_of_digits(k**3)%2==1):
+            total=total+k
+    return total
+"""
     What comes in:  Positive integers r and s, with r <= s.
     What goes out:
       -- Returns the sum of all the integers from r to s, inclusive,
@@ -175,7 +168,7 @@ def problem3a(r, s):
           -- 5 cubed is   125, whose sum of digits is  8, which is NOT odd.
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -184,16 +177,6 @@ def problem3a(r, s):
     #    **  use (call) the   sum_of_digits   function
     #    **  that is DEFINED ABOVE.
     ###########################################################################
-    sum = 0
-    for k in range(r+1, s+1):
-        if sum_of_digits(k ** 3) % 2 == 0:
-            sum= sum_of_digits(k ** 3) + sum_of_digits(k ** 3)
-            return sum
-
-
-
-
-
 
 
 def run_test_problem3b():
@@ -283,7 +266,12 @@ def run_test_problem3b():
 
 
 def problem3b(m, r):
-    """
+    total=0
+    for k in range(m):
+        total=total+((k+1)/((r+k)**(k+1)))
+    return total
+
+"""
     What comes in:  A positive integer m and a number r.
     What goes out:
       -- Returns the sum that is the first  m  terms of the series
@@ -302,11 +290,10 @@ def problem3b(m, r):
            which is approximately 12.020144157845959.
      """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     ###########################################################################
-    for k in range(m,r):
-        (k+1)/(r ** (k+1))
+
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
